@@ -15,7 +15,7 @@ def send_password_reset_email(user):
 	token = user.get_token('reset_password', unique=True)
 	send_email(
 		'Reset Your Password',
-		sender=current_app.config['ADMINS'][0],
+		sender=current_app.config['MAIL_ADMIN'],
 		recipients=[user.username],
 		text_body=render_template('email/reset_password.txt',
 															user=user, token=token),
@@ -31,7 +31,7 @@ def send_login_email(user):
 	token = user.get_token('login', unique=True)
 	send_email(
 		'Use this link to sign in',
-		sender=current_app.config['ADMINS'][0],
+		sender=current_app.config['MAIL_ADMIN'],
 		recipients=[user.username],
 		text_body=render_template('email/login.txt',
 															user=user, token=token),
