@@ -1,7 +1,9 @@
-Dear {{ user.username }},
+Hello {{ user.username }},
 
 To sign in click on the following link:
 
 {{ url_for('auth.login_by_email', token=token, _external=True) }}
+
+This link will expire after 10 minutes, and it can only be used once.
 
 If you have not requested a sign in link, please ignore this message.

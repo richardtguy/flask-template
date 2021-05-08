@@ -1,8 +1,11 @@
-<p>Dear {{ user.username }}</p>
-
+<p>Hello {{ user.username }}</p>
+<p>Click here to sign in:</p>
 <p>
-	To sign in
-	<a href="{{ url_for('auth.login_by_email', token=token, _external=True) }}"> click here</a>
+	<a href="{{ url_for('auth.login_by_email', token=token, _external=True) }}"><button type="button">Sign in</button></a>
 </p>
-
+<p>Or copy this link into your browser:</p>
+<p>
+	<a href="{{ url_for('auth.login_by_email', token=token, _external=True) }}">{{ url_for('auth.login_by_email', token=token, _external=True) }}</a>
+</p>
+<p>This link will expire after 10 minutes, and it can only be used once.</p>
 <p>If you have not requested a sign in link, please ignore this message.</p>

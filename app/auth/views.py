@@ -58,7 +58,10 @@ def login_by_email():
 	token = request.args.get('token')
 	if token:
 		user = User.verify_token(request.args['token'], 'login')
+		# commit session to update update active token record in user object
+		db.session.commit()
 		if not user:
+			flash('Invalid sign in link', 'danger')
 			return redirect(url_for('auth.login_by_email'))
 		login_user(user, remember=True)
 		next_page = request.args.get('next')
