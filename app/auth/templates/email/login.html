@@ -1,0 +1,8 @@
+<p>Dear {{ user.username }}</p>
+
+<p>
+	To sign in
+	<a href="{{ url_for('auth.login_by_email', token=token, _external=True) }}"> click here</a>
+</p>
+
+<p>If you have not requested a sign in link, please ignore this message.</p>

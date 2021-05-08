@@ -1,0 +1,7 @@
+Dear {{ user.username }},
+
+To sign in click on the following link:
+
+{{ url_for('auth.login_by_email', token=token, _external=True) }}
+
+If you have not requested a sign in link, please ignore this message.
